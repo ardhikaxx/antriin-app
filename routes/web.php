@@ -23,30 +23,30 @@ Route::middleware('auth')->group(function () {
     // Admin Routes
     Route::prefix('admin')->name('admin.')->middleware('role.admin')->group(function () {
         Route::get('/dashboard', [Admin\DashboardController::class, 'index'])->name('dashboard');
-        // Route::resource('users', Admin\UserController::class);
-        // Route::resource('layanan', Admin\LayananController::class);
-        // Route::resource('jadwal', Admin\JadwalController::class);
-        // Route::resource('booking', Admin\BookingController::class);
-        // Route::resource('antrian', Admin\AntrianController::class);
-        // Route::get('laporan', [Admin\LaporanController::class, 'index'])->name('laporan');
+        Route::resource('users', Admin\UserController::class);
+        Route::resource('layanan', Admin\LayananController::class);
+        Route::resource('jadwal', Admin\JadwalController::class);
+        Route::resource('booking', Admin\BookingController::class);
+        Route::resource('antrian', Admin\AntrianController::class);
+        Route::get('laporan', [Admin\LaporanController::class, 'index'])->name('laporan');
     });
 
     // Owner Routes
     Route::prefix('owner')->name('owner.')->middleware('role.owner')->group(function () {
         Route::get('/dashboard', [Owner\DashboardController::class, 'index'])->name('dashboard');
-        // Route::get('/laporan', [Owner\LaporanController::class, 'index'])->name('laporan');
+        Route::get('/laporan', [Owner\LaporanController::class, 'index'])->name('laporan');
     });
 
     // Petugas Routes
     Route::prefix('petugas')->name('petugas.')->middleware('role.petugas')->group(function () {
         Route::get('/dashboard', [Petugas\DashboardController::class, 'index'])->name('dashboard');
-        // Route::resource('antrian', Petugas\AntrianController::class);
+        Route::resource('antrian', Petugas\AntrianController::class);
     });
 
     // Pelanggan Routes
     Route::prefix('pelanggan')->name('pelanggan.')->middleware('role.pelanggan')->group(function () {
         Route::get('/dashboard', [Pelanggan\DashboardController::class, 'index'])->name('dashboard');
-        // Route::resource('booking', Pelanggan\BookingController::class);
-        // Route::get('/antrian', [Pelanggan\AntrianController::class, 'index'])->name('antrian');
+        Route::resource('booking', Pelanggan\BookingController::class);
+        Route::get('/antrian', [Pelanggan\AntrianController::class, 'index'])->name('antrian');
     });
 });
