@@ -1,4 +1,4 @@
-# 📋 RULE-ANTRIIN.md
+# 📋 ANTRIIN
 ## Panduan Pengembangan Sistem ANTRIIN – Booking & Antrian UMKM
 
 ---
@@ -13,7 +13,7 @@
 | Icon | Font Awesome 6 (CDN) |
 | Alert & Konfirmasi | SweetAlert2 (CDN) |
 | Templating | Blade Laravel |
-| Auth | Laravel Breeze / Custom Auth |
+| Auth | Custom Auth |
 
 ### CDN yang Wajib Digunakan
 
